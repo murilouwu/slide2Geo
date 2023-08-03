@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+	<title>Rússia X Angola</title>
+</head>
+<body>
+	<div class="slideMove">
+		<button class="btn" id="BtnAnt" onclick="mudPage(this, ['#BtnProx','#pagInfo','#slide'], [1, 0], 10)"><</button>
+		<label class="pag" id="pagInfo">1/10</label>
+		<button class="btn" id="BtnProx" onclick="mudPage(this, ['#BtnAnt','#pagInfo','#slide'], [0, 0], 10)">></button>
+	</div>
+	<div class="slides">
+		<div class="slide Sdltype5" id="slide0">
+		</div>
+		<div class="slide Sdltype0" id="slide1">
+		</div>
+		<div class="slide Sdltype2" id="slide2">
+		</div>
+		<div class="slide Sdltype1" id="slide3">
+		</div>
+		<div class="slide Sdltype3" id="slide4">
+		</div>
+		<div class="slide Sdltype4" id="slide5">
+		</div>
+		<div class="slide Sdltype0" id="slide6">
+		</div>
+		<div class="slide Sdltype5" id="slide7">
+		</div>
+		<div class="slide Sdltype2" id="slide8">
+		</div>
+		<div class="slide Sdltype1" id="slide9">
+		</div>
+	</div>
+</body>
+<script>
+	document.querySelector('body').addEventListener('keydown', (event)=>{
+	    var KeyCode = event.keyCode || event.which;
+	    if(KeyCode==39){
+	        let btn = document.querySelector('#BtnProx');
+	        btn.click();
+	    }else if(KeyCode==37){
+	    	let btn = document.querySelector('#BtnAnt');
+	        btn.click();
+	    }
+	});
+
+	window.onload = ()=>{
+		let div = document.querySelector('.slides');
+	};
+</script>
+</html>
