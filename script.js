@@ -57,3 +57,28 @@ function mudPage(btn, info, es, limit){
 		divs[0].setAttribute('onclick', click2);
 	}
 }
+
+function mostrar(ocu, chave){
+    for (var i=0; i<ocu.length; i++){	
+		if (i<chave){
+			ocultar(ocu[i], 0);	
+		}else{
+			ocultar(ocu[i], 1);
+		};
+	};
+};
+
+//ocultar e mostra div
+function ocultar(obj, es){
+	let div = document.querySelector(obj);
+	if(es==1){
+		div.style.display = 'flex';
+	}else{
+		div.style.display = 'none';
+	};
+};
+
+//redirecionar pagina
+function redirect(page) {
+    window.location.href = page;
+}

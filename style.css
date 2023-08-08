@@ -8,7 +8,30 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	transition: 0.5s;
+	transition: 0.05s;
+}
+input[type=file] {
+	display: none;
+}
+
+::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgb(0 0 0 /25%);
+}
+
+.ocultar {
+	display: none;
+}
+
+button:focus, button:focus-visible, input:focus-visible, input:focus, select:focus-visible, select:focus, textarea:focus-visible, textarea:focus {
+	outline: none;
 }
 
 body{
@@ -18,6 +41,72 @@ body{
 	background-color: var(--corC);
 	overflow: hidden;
 }
+	.slideView{
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		align-self: baseline;
+		background-color: var(--corB);
+		width: 20vw;
+		height: 90vh;
+		z-index: 1;
+		border-right: 5px solid var(--corA);
+		padding: 5vh;
+		overflow-y: overlay;
+		overflow-x: hidden;
+	}
+		.slideIframe{
+			width: 100%;
+			height: 27vh;
+			background-color: var(--corD);
+			border: 2px solid var(--corA);
+			border-radius: 0.5vw;
+			margin-bottom: 3vh;
+		}
+		.btnPlus{
+			color: var(--corD);
+			border: none;
+			border-radius: 0.5vw;
+			font-size: 5vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--corB);
+		}
+			.btnPlus:hover{
+				cursor: pointer;
+				font-size: 6vh;
+			}
+			.btnPlus:active{
+				cursor: grabbing;
+				font-size: 4vh;
+			}
+		.btnexit{
+			color: var(--corD);
+			border: none;
+			font-size: 5vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--corA);
+			padding: 0.5vw 0.7vw;
+			border-radius: 0vw 5vw 5vw 0vw;
+			position: absolute;
+			margin: -2vh 0vw 0vh 29vw;
+		}
+			.btnexit:hover{
+				cursor: pointer;
+				background-color: var(--corD);
+				color: var(--corA);
+				font-size: 6vh;
+				padding: 0.5vw 0.9vw;
+				margin: -2vh 0vw 0vh 30vw;
+			}
+			.btnexit:active{
+				cursor: grabbing;
+				font-size: 4vh;
+				margin: -2vh 0vw 0vh 29.4vw;
+			}
 	.slideMove{
 		display: flex;
 		position: absolute;
@@ -59,26 +148,3 @@ body{
 		align-items: center;
 		justify-content: center;
 	}
-		.slide{
-			display: none;
-			width: 100vw;
-			height: 100vh;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
-			.Sdltype0{
-				background-color: var(--corA);
-			}
-			.Sdltype1{
-				background-color: var(--corB);
-			}
-			.Sdltype2{
-				background-color: var(--corC);
-			}
-			.Sdltype3{
-				background-color: var(--corD);
-			}
-			.Sdltype5{
-				background-color: var(--corE);
-			}

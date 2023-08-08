@@ -1,16 +1,46 @@
+<!--<?php
+	include('Config.php');
+	HeaderEcho(
+		'View', 
+		[
+			[0, 'charset="utf-8"'],
+			[0, 'http-equiv="X-UA-Compatible" content="IE=edge"'],
+			[0, 'name="viewport" content="width=device-width, initial-scale=1.0"'],
+			[1, 'style.css'],
+			[2, 'script.js'],
+			[2, 'https://kit.fontawesome.com/39cab4bf95.js', 'crossorigin="anonymous"'],
+			[2, 'https://code.jquery.com/jquery-3.2.1.slim.js', 'integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"'],
+		],
+		'Logo.png'
+	);
+?>-->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
-	<title>Rússia X Angola</title>
+	<title>View</title>
 </head>
 <body>
+	<div class="slideView">
+		<button class="btnexit" onclick="ocultar('.slideView', 0)"><i class="fa-solid fa-xmark"></i></button>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<iframe src="Slides/1.html" class="slideIframe"></iframe>
+		<button class="btnPlus" onclick=""><i class="fa-solid fa-square-plus"></i></button>
+	</div>
 	<div class="slideMove">
+		<button class="btn" id="BtnMenu" onclick="ocultar('.slideView', 1)"><i class="fa-solid fa-bars"></i></button>
 		<button class="btn" id="BtnAnt" onclick="mudPage(this, ['#BtnProx','#pagInfo','#slide'], [1, 0], 10)"><</button>
 		<label class="pag" id="pagInfo">1/10</label>
 		<button class="btn" id="BtnProx" onclick="mudPage(this, ['#BtnAnt','#pagInfo','#slide'], [0, 0], 10)">></button>
@@ -47,11 +77,16 @@
 	    }else if(KeyCode==37){
 	    	let btn = document.querySelector('#BtnAnt');
 	        btn.click();
-	    }
+	    }else if(KeyCode==77){
+			let ver = document.querySelector('.slideView').style.display;
+			alert(ver);
+			//let btn = ver=="flex"?;
+	        //btn.click();
+		}
 	});
-
-	window.onload = ()=>{
-		let div = document.querySelector('.slides');
-	};
 </script>
+
 </html>
+<!--<?php
+	footEcho();
+?>-->
