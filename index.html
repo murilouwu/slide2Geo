@@ -27,65 +27,49 @@
 	<title>View</title>
 </head>
 <body>
-	<div class="slideView">
-		<button class="btnexit" onclick="ocultar('.slideView', 0)"><i class="fa-solid fa-xmark"></i></button>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<iframe src="Slides/1.html" class="slideIframe"></iframe>
-		<button class="btnPlus" onclick=""><i class="fa-solid fa-square-plus"></i></button>
+	<div class="slideView" id="slideView">
+		<button class="btnexit" id="btnexit" onclick="ocultar('#slideView', 0)"><i class="fa-solid fa-xmark"></i></button>
+		<iframe src="Slides/1.html" class="slideIframe"><button onclick="pag(['#slideView', '#slide', 2, 0], ['#BtnProx','#BtnAnt'], '#pagInfo')">view</button></iframe>
+		<iframe src="Slides/2.html" class="slideIframe"><button onclick="pag(['#slideView', '#slide', 2, 1], ['#BtnProx','#BtnAnt'], '#pagInfo')">view</button></iframe>
+		<button class="btnPlus" onclick="ocultar('#slideView', 0)"><i class="fa-solid fa-square-plus"></i></button>
 	</div>
 	<div class="slideMove">
-		<button class="btn" id="BtnMenu" onclick="ocultar('.slideView', 1)"><i class="fa-solid fa-bars"></i></button>
-		<button class="btn" id="BtnAnt" onclick="mudPage(this, ['#BtnProx','#pagInfo','#slide'], [1, 0], 10)"><</button>
-		<label class="pag" id="pagInfo">1/10</label>
-		<button class="btn" id="BtnProx" onclick="mudPage(this, ['#BtnAnt','#pagInfo','#slide'], [0, 0], 10)">></button>
+		<button class="btn" id="BtnMenu" onclick="ocultar('#slideView', 1)"><i class="fa-solid fa-bars"></i></button>
+		<button class="btn" id="BtnAnt" onclick="mudPage(this, ['#BtnProx','#pagInfo','#slide'], [1, 0], 2)"><</button>
+		<label class="pag" id="pagInfo">1/2</label>
+		<button class="btn" id="BtnProx" onclick="mudPage(this, ['#BtnAnt','#pagInfo','#slide'], [0, 0], 2)">></button>
 	</div>
 	<div class="slides">
-		<div class="slide Sdltype5" id="slide0">
+		<div class="slide" id="slide0">
+			<iframe src="Slides/1.html" class="BigslideIframe"></iframe>
 		</div>
-		<div class="slide Sdltype0" id="slide1">
-		</div>
-		<div class="slide Sdltype2" id="slide2">
-		</div>
-		<div class="slide Sdltype1" id="slide3">
-		</div>
-		<div class="slide Sdltype3" id="slide4">
-		</div>
-		<div class="slide Sdltype4" id="slide5">
-		</div>
-		<div class="slide Sdltype0" id="slide6">
-		</div>
-		<div class="slide Sdltype5" id="slide7">
-		</div>
-		<div class="slide Sdltype2" id="slide8">
-		</div>
-		<div class="slide Sdltype1" id="slide9">
+		<div class="slide" id="slide1">
+			<iframe src="Slides/2.html" class="BigslideIframe"></iframe>
 		</div>
 	</div>
 </body>
 <script>
-	document.querySelector('body').addEventListener('keydown', (event)=>{
-	    var KeyCode = event.keyCode || event.which;
-	    if(KeyCode==39){
-	        let btn = document.querySelector('#BtnProx');
-	        btn.click();
-	    }else if(KeyCode==37){
-	    	let btn = document.querySelector('#BtnAnt');
-	        btn.click();
-	    }else if(KeyCode==77){
-			let ver = document.querySelector('.slideView').style.display;
-			alert(ver);
-			//let btn = ver=="flex"?;
-	        //btn.click();
+	document.querySelector('body').addEventListener('keydown', (event) => {
+		var KeyCode = event.keyCode || event.which;
+		if (KeyCode == 39) {
+			let btn = document.querySelector('#BtnProx');
+			btn.click();
+		} else if (KeyCode == 37) {
+			let btn = document.querySelector('#BtnAnt');
+			btn.click();
+		} else if (KeyCode == 77) {
+			let slideView = document.querySelector('#slideView');
+			let displayValue = slideView.style.display;
+			let buttonToClick;
+			if (displayValue === "none") {
+				buttonToClick = document.querySelector('#BtnMenu');
+			} else {
+				buttonToClick = document.querySelector('#btnexit');
+			}
+			buttonToClick.click();
 		}
 	});
 </script>
-
 </html>
 <!--<?php
 	footEcho();

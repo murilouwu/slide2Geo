@@ -30,8 +30,7 @@ function mudPage(btn, info, es, limit){
 		let click2 = "mudPage(this, ['#BtnProx','"+info[1]+"','"+info[2]+"'], [ 1, "+fun+"], "+limit+")";
 		divs[0].setAttribute('onclick', click2);
 	}else{
-		
-		let fun = (es[1] - 1)<0? 9: es[1] - 1;
+		let fun = (es[1] - 1)<0? (limit-1): es[1] - 1;
 		divs[1].innerHTML = (fun+1)+'/'+limit;
 		var configWhile = [0, false];
 
@@ -81,4 +80,39 @@ function ocultar(obj, es){
 //redirecionar pagina
 function redirect(page) {
     window.location.href = page;
+}
+
+function pag(info, btns, text){
+    ocultar(info[0], 0);
+    let a = 0;
+    let seg = 1;
+
+    while (seg === 1) {
+		let name = info[1] + a;
+        let div = document.querySelector(name);
+        if (name!=(info[1]+info[3])){
+			if(div){
+				ocultar(name, 0);
+			}else{
+				seg = 0;
+			}
+        }else{
+            ocultar(name, 1);
+        }
+        a++;
+    };
+
+	let btnOn = [
+		document.querySelector(btns[0]),
+		document.querySelector(btns[1])
+	];
+	let click = [
+		"mudPage(this, ['"+btns[1]+"','"+text+"','#slide'], [ 0, 0], "+info[2]+")",
+		"mudPage(this, ['"+btns[0]+"','"+text+"','#slide'], [ 1, 0], "+info[2]+")"
+	];
+	btnOn[0].setAttribute('onclick', click[0]);
+	btnOn[1].setAttribute('onclick', click[1]);
+
+	let pagText = document.querySelector(text);
+	pagText.innerHTML = (info[3]+1)+'/'+info[2];
 }
